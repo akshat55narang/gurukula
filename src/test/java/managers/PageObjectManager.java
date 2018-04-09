@@ -1,6 +1,6 @@
 package managers;
 
-import objectRepository.BranchOverView;
+import objectRepository.BranchOverViewPage;
 import objectRepository.HomePage;
 import objectRepository.LoginPage;
 import objectRepository.PasswordResetPage;
@@ -18,7 +18,7 @@ public class PageObjectManager {
 	public RegistrationPage register;
 	public PasswordResetPage passwordreset;
 	public StaffOverviewPage staff;
-	public BranchOverView branch;
+	public BranchOverViewPage branch;
 	
 	public PageObjectManager(WebDriver driver){
 		this.driver=driver;
@@ -44,7 +44,7 @@ public class PageObjectManager {
 		return (staff==null)? staff = new StaffOverviewPage(driver):staff;
 	}
 	
-	public BranchOverView getBranchOverviewPage(){
-		return (branch==null)? branch = new BranchOverView(driver):branch;
+	public BranchOverViewPage getBranchOverviewPage(){
+		return (branch==null)? branch = new BranchOverViewPage(driver):branch;
 	}
 }

@@ -8,32 +8,33 @@ import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class StaffOverviewPage {
+public class BranchOverViewPage {
 
-	private WebDriver driver;
+	public WebDriver driver;
 	
-	public StaffOverviewPage(WebDriver driver){
+	public BranchOverViewPage(WebDriver driver) {
 		this.driver=driver;
 		PageFactory.initElements(driver, this);
 	}
 	
+	
 	@FindBy(xpath="//*[@class='col-md-4']/button/span[@class='ng-scope']")
-	private WebElement buttonCreateStaff;
+	private WebElement buttonCreateBranch;
 	
 	@FindBy(css="#searchQuery")
 	private WebElement inputSearchQuery;
 	
 	@FindBy(xpath="//button[@class='btn btn-info']")
-	private WebElement buttonSearchStaff;
+	private WebElement buttonSearchBranch;
 	
 	@FindAll(value = { @FindBy(xpath="//*[text()='View']")})
-	private List<WebElement> buttonViewStaff;
+	private List<WebElement> buttonViewBranch;
 	
 	@FindBy(xpath="//*[text()='Edit']")
-	private List<WebElement> buttonEditStaff;
+	private List<WebElement> buttonEditBranch;
 	
 	@FindBy(xpath="//*[text()='Delete']")
-	private List<WebElement> buttonDeleteStaff;
+	private List<WebElement> buttonDeleteBranch;
 	
 	@FindBy(linkText="<<")
 	private WebElement linkFirst;
@@ -50,50 +51,54 @@ public class StaffOverviewPage {
 	@FindBy(xpath="//*[@name='name']")
 	private WebElement formInputName;
 	
-	@FindBy(xpath="//*[@name='related_branch']")
-	private WebElement formInputRelatedBranch;
+	@FindBy(xpath="//*[@name='code']")
+	private WebElement formInputBranch;
 	
 	@FindBy(xpath="//*[text()='Cancel']")
-	private WebElement buttonCancelStaffCreation;
+	private WebElement buttonCancelBranchCreation;
 	
 	@FindBy(xpath="//*[text()='Save']")
-	private WebElement buttonSaveStaffCreation;
+	private WebElement buttonSaveBranchCreation;
 	
 	//table table-striped
 	@FindBy(xpath="//*[@class='table table-striped']")
-	public WebElement tableStaffInformation;
+	public WebElement tableBranchInformation;
 	
 	@FindAll(value = { @FindBy(css="[class='table table-striped'] tr[class='ng-scope'] td:nth-child(2)") })
-	private List<WebElement> rowStaffName; 
-	
+	private List<WebElement> rowBranchName; 
+		
 	@FindBy(xpath="//*[@class='table table-striped']/tbody/tr[1]/td[2]/input")
-	private WebElement inputStaffViewName;
+	private WebElement inputBranchViewName;
 	
+	@FindBy(xpath="//*[@class='btn btn-danger']/span[@class='ng-scope']")
+	private WebElement buttonDeleteConfirmation;
+	
+	//
 	@FindBy(xpath="//*[text()='Back']")
 	private WebElement buttonViewFormBack;
 	
-	public WebElement getCreateStaffButton(){
-		return buttonCreateStaff;
+	public WebElement getCreateBranchButton(){
+		return buttonCreateBranch;
 	}
 	
 	public WebElement getSearchInput(){
 		return inputSearchQuery;
 	}
 	
-	public WebElement getSearchStaffButton(){
-		return buttonSearchStaff;
+	public WebElement getSearchBranchButton(){
+		return buttonSearchBranch;
 	}
 	
-	public List<WebElement> getViewStaffButton(){
-		return buttonViewStaff;
+	public List<WebElement> getViewBranchButton(){
+		return buttonViewBranch;
 	}
 	
-	public List<WebElement> getEditStaffButton(){
-		return buttonEditStaff;
+	public List<WebElement> getEditBranchButton(){
+		return buttonEditBranch;
 	}
 	
-	public List<WebElement> getDeleteStaffButton(){
-		return buttonDeleteStaff;
+	public List<WebElement> getDeleteBranchButton(){
+		return buttonDeleteBranch;
 	}
 	
 	public WebElement getFirstPageButton(){
@@ -116,31 +121,35 @@ public class StaffOverviewPage {
 		return formInputName;
 	}
 	
-	public WebElement getFormInputRelatedBranch(){
-		return formInputRelatedBranch;
+	public WebElement getFormInputBranch(){
+		return formInputBranch;
 	}
 	
 	public WebElement getCancelButton(){
-		return buttonCancelStaffCreation;
+		return buttonCancelBranchCreation;
 	}
 	
 	public WebElement getSaveButton(){
-		return buttonSaveStaffCreation;
+		return buttonSaveBranchCreation;
 	}
 	
-	public WebElement getStaffListTable(){
-		return tableStaffInformation;
+	public WebElement getBranchListTable(){
+		return tableBranchInformation;
 	}
 	
-	public List<WebElement> getStaffRowNameCoulumn(){
-		return rowStaffName;
+	public List<WebElement> getBranchRowNameColumn(){
+		return rowBranchName;
 	}
 	
-	public WebElement getStaffViewFormName(){
-		return inputStaffViewName;
+	public WebElement getBranchViewFormName(){
+		return inputBranchViewName;
 	}
 
 	public WebElement getBackButtonOnViewForm(){
 		return buttonViewFormBack;
+	}
+	
+	public WebElement getDeleteConfirmation(){
+		return buttonDeleteConfirmation;
 	}
 }

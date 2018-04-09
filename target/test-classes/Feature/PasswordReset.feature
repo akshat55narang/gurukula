@@ -1,6 +1,6 @@
 Feature: Forgot Password 
 
-@ResetPassword
+@RLogin
 Scenario: Verify whether user is able to reset the password using the Reset Password Link
 Given User opens Application in Browser
 And User clicks on Login Button

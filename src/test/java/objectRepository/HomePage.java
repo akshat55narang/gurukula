@@ -45,6 +45,9 @@ public class HomePage {
 	@FindBy(xpath="//*[text()='Staff']")
 	private WebElement listItemStaff;
 	
+	@FindBy(xpath="//*[text()='Branch']")
+	private WebElement listItemBranch;
+	
 	
 	public WebElement getLoginButton(){
 		return buttonLogin;
@@ -81,4 +84,9 @@ public class HomePage {
 	public WebElement getListItemStaffFromEntitiesMenu(){
 		return listItemStaff;
 	}
+	
+	public WebElement getListItemBranchFromEntitiesMenu(){
+		return listItemBranch;
+	}
+
 }

@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(
 		features="src/test/resources"
 		,glue="stepDefinition"
-		,tags="@CreateStaff"
+		,tags="@DeleteBranch"
 		//,dryRun=true
 		
 		)

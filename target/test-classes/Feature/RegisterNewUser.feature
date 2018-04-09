@@ -1,6 +1,6 @@
 Feature: Register a New User
 
-@Register
+@Login
 Scenario: Verify whether a new user is able to Register for gurukula
 Given User opens Application in Browser
 And User clicks on Register in Accounts Menu

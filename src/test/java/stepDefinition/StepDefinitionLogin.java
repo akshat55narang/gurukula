@@ -20,6 +20,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import cucumber.TestContext;
 import cucumber.api.DataTable;
+import cucumber.api.java.After;
 import cucumber.api.java.en.*;
 import dataProvider.ConfigFileReader;
 
@@ -46,6 +47,7 @@ public class StepDefinitionLogin {
 		register = testContext.getPageObjectManager().getRegistrationPage();
 	}
 	
+	
 	@Given("^User opens Application in Browser$")
 	public void user_opens_Application_in_Browser() throws Throwable {
 		//webDriverManager = new WebDriverManager();
@@ -71,7 +73,7 @@ public class StepDefinitionLogin {
 		String userType = "admin";
 		login.getAuthenticationButton().click();
 		Assert.assertTrue(login.getAuthenticationSuccessMessage().getText().equals("You are logged in as user \""+userType+"\"."));
-		webDriverManager.closeBrowser();
+		testContext.getWebDriverManager().closeBrowser();
 	}
 
 	
@@ -86,7 +88,7 @@ public class StepDefinitionLogin {
 	public void user_should_not_be_able_to_Login() throws Throwable {
 		login.getAuthenticationButton().click();
 		Assert.assertEquals("Authentication failed! Please check your credentials and try again.", login.getAuthenticationFailureMessage().getText());
-		webDriverManager.closeBrowser();
+		testContext.getWebDriverManager().closeBrowser();
 	}
 
 	@Given("^User enters valid credentials$")
@@ -123,8 +125,9 @@ public class StepDefinitionLogin {
 
 	@Then("^User should be able to logout of the application$")
 	public void user_should_be_able_to_logout_of_the_application() throws Throwable {
+		
 		Assert.assertTrue(home.getLoginButton().isDisplayed());
-		webDriverManager.closeBrowser();
+		testContext.getWebDriverManager().closeBrowser();
 		
 		
 	}
@@ -145,7 +148,7 @@ public class StepDefinitionLogin {
 	public void user_should_receive_the_password_reset_link_in_the_email() throws Throwable {
 	    passwordreset.getResetPasswordButton().click();
 	    Assert.assertEquals("E-Mail address isn't registered! Please check and try again", passwordreset.getFailedResetPasswordMessage().getText());
-	    webDriverManager.closeBrowser();
+	    testContext.getWebDriverManager().closeBrowser();
 	}
 	
 	
